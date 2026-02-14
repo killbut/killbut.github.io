@@ -4,7 +4,8 @@ import anime from 'https://cdn.skypack.dev/animejs';
 const yesButton = document.getElementById('yesButton');
 const noButton = document.getElementById('noButton');
 const imageDisplay = document.getElementById('imageDisplay');
-const sourceGif = document.getElementById("sourceGif");
+const videoTag = document.getElementById('videoTag');
+const sourceGif = document.getElementById("sourceTag");
 const valentineQuestion = document.getElementById('valentineQuestion');
 const responseButtons = document.getElementById('responseButtons');
 
@@ -44,6 +45,8 @@ const getRandomNumber = (num) => {return Math.floor(Math.random() * (num + 1));}
   noButton.addEventListener("click", () => {
     if (noClickCount < 3) {
       sourceGif.src = imagePaths[noClickCount];
+      videoTag.load();
+      videoTag.play().catch(() => {});
       //yes button gets thicc
       buttonHeight += 35; buttonWidth += 35; fontSize += 25;
       yesButton.style.height = `${buttonHeight}px`;
